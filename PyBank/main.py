@@ -6,7 +6,7 @@ profit_losses = []
 change = []
 
 budget_csv = os.path.join("PyBank","Resources","budget_data.csv")
-analysis_file = os.path.join("Pybank","Analysis","data_analysis.txt")
+analysis_file = os.path.join("PyBank","Analysis","budget_analysis.txt")
 
 with open(budget_csv) as budget_file:
     csv_reader = csv.reader( budget_file, delimiter = ",")
@@ -57,3 +57,5 @@ with open(budget_csv) as budget_file:
     )
     print(display)
     
+    with open(analysis_file, "w") as txt_file:
+        txt_file.write(display)
