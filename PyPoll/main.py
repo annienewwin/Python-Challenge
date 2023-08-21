@@ -27,7 +27,7 @@ with open(election_csv) as election_file:
             candidates.append(candidate_list[i])
 
     # finding total number of votes and percentage of votes each candidate won
-    for i in range(len(candiate_list)):
+    for i in range(len(candidate_list)):
         if candidate_list[i] == candidates[0]:
             candidate_0 += 1
         elif candidate_list[i] == candidates[1]:
