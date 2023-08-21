@@ -9,38 +9,38 @@ with open(election_csv) as election_file:
     csv_header = next( csv_reader ) 
 
     vote_count = 0
-    candiate_0 = 0
-    candiate_1 = 0
-    candiate_2 = 0
+    candidate_0 = 0
+    candidate_1 = 0
+    candidate_2 = 0
 
-    candiate_list= []
-    candiates = []
+    candidate_list= []
+    candidates = []
 
     # finding the total number of votes
     for rows in csv_reader:
         vote_count += 1
-        candiate_list.append(rows[2])
+        candidate_list.append(rows[2])
 
-        # complete list of candiates who received votes
-    for i in range(len(candiate_list) -1 ):
-        if candiate_list[i+1] != candiate_list[i]:
-            candiates.append(candiate_list[i])
+        # complete list of candidates who received votes
+    for i in range(len(candidate_list) -1 ):
+        if candidate_list[i+1] != candidate_list[i]:
+            candidates.append(candidate_list[i])
 
-    # finding total number of votes and percentage of votes each candiate won
+    # finding total number of votes and percentage of votes each candidate won
     for i in range(len(candiate_list)):
-        if candiate_list[i] == candiates[0]:
-            candiate_0 += 1
-        elif candiate_list[i] == candiates[1]:
-            candiate_1 += 1 
+        if candidate_list[i] == candidates[0]:
+            candidate_0 += 1
+        elif candidate_list[i] == candidates[1]:
+            candidate_1 += 1 
         else:
-            candiate_2 += 1
+            candidate_2 += 1
 
-    percentage_0 = round((( candiate_0 / vote_count ) * 100 ),3 )
-    percentage_1 = round((( candiate_1 / vote_count ) * 100 ),3 )
-    percentage_2 = round((( candiate_2 / vote_count ) * 100 ),3 )
+    percentage_0 = round((( candidate_0 / vote_count ) * 100 ),3 )
+    percentage_1 = round((( candidate_1 / vote_count ) * 100 ),3 )
+    percentage_2 = round((( candidate_2 / vote_count ) * 100 ),3 )
 
     # winner of election 
-    winner = candiates[1]
+    winner = candidates[1]
 
     # display results 
     display = (
@@ -48,9 +48,9 @@ with open(election_csv) as election_file:
         f"------------------------------\n"
         f"Total Votes: {vote_count}\n"
         f"------------------------------\n"
-        f"{candiates[0]}: {percentage_0}% ({candiate_0})\n"
-        f"{candiates[1]}: {percentage_1}% ({candiate_1})\n"
-        f"{candiates[2]}: {percentage_2}% ({candiate_2})\n"
+        f"{candidates[0]}: {percentage_0}% ({candidate_0})\n"
+        f"{candidates[1]}: {percentage_1}% ({candidate_1})\n"
+        f"{candidates[2]}: {percentage_2}% ({candidate_2})\n"
         f"------------------------------\n"
         f"Winner: {winner}\n"
         f"------------------------------\n"
